@@ -201,7 +201,7 @@ a {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 34px;
-  align-items: center;
+  align-items: start;
   padding: 36px 0 12px;
 }
 
@@ -489,9 +489,6 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-.shot--mini img {
-  height: 92px;
-}
 
 /* Section */
 section {
@@ -642,6 +639,9 @@ section {
   object-fit: cover;
   display: block;
   transition: transform 220ms ease;
+}
+.shot.shot--mini img {
+  height: 92px;
 }
 .shot:hover img {
   transform: scale(1.03);
@@ -955,5 +955,15 @@ section {
   }
   .link {
     grid-column: span 12;
+  }
+  .quick-shots-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .quick-shots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .shot.shot--mini img {
+    height: 76px;
   }
 }
