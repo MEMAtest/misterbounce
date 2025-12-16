@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Mister Bounce</title>
+    <meta name="description" content="Privacy policy for Mister Bounce." />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="page">
+    <main class="page-shell">
+      <a class="page-back" href="index.html">← Back to home</a>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: <span id="policyDate"></span></p>
+
+      <section class="page-card">
+        <h2>What I collect</h2>
+        <p>If you contact me using the form, I collect the information you submit (name, email, message) so I can reply.</p>
+        <h2>How I use it</h2>
+        <p>I use your details only to respond to your enquiry and manage bookings.</p>
+        <h2>Where it’s stored</h2>
+        <p>Form submissions are processed by Netlify Forms after the site is deployed.</p>
+        <h2>Your rights</h2>
+        <p>You can request access, correction, or deletion of your message by emailing <a href="mailto:bookings@misterbounce.co.uk">bookings@misterbounce.co.uk</a>.</p>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById('policyDate').textContent = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+    </script>
+  </body>
+</html>
+

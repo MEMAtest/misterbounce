@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <defs>
+    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3366" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#00d9ff" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="1000" fill="#0a0a10"/>
+  <path d="M0 750 C 220 650, 380 980, 640 870 C 900 760, 1060 870, 1400 720 L 1400 1000 L 0 1000 Z" fill="url(#g)"/>
+  <rect x="90" y="80" width="1220" height="840" rx="42" fill="rgba(18,18,26,0.88)" stroke="rgba(255,255,255,0.10)" />
+  <text x="700" y="530" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800" fill="rgba(255,255,255,0.78)">Replace With Photo</text>
+</svg>
+

@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mister Bounce — DJ • Radio Host • Voiceover</title>
+    <meta
+      name="description"
+      content="Mister Bounce — DJ, radio host and voiceover artist. Explore tour dates, music, photos, and booking enquiries."
+    />
+
+    <meta property="og:title" content="Mister Bounce — DJ • Radio Host • Voiceover" />
+    <meta
+      property="og:description"
+      content="Tour dates, mixes, photos and bookings for Mister Bounce."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/images/hero.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="bg" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#home">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-name">MISTER BOUNCE</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" type="button">
+          Menu
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#photos">Photos</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#contact" class="nav-cta">Book Now</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home">
+        <div class="wrap hero-grid">
+          <div class="reveal">
+            <div class="kicker">
+              <strong>Available for bookings</strong>
+              <span>•</span>
+              <span>clubs • radio • private</span>
+            </div>
+            <h1 class="title">Mister Bounce</h1>
+            <p class="subtitle">
+              Professional DJ, radio host and voiceover artist. Soulful house, groove-driven rhythms, and
+              unforgettable live sets — from intimate rooms to festival stages.
+            </p>
+
+            <ul class="tags" aria-label="Roles">
+              <li class="tag">DJ</li>
+              <li class="tag">Radio Host</li>
+              <li class="tag">Voiceover</li>
+            </ul>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="#music">▶ Listen now</a>
+              <a class="btn btn-ghost" href="#contact">Get in touch</a>
+            </div>
+          </div>
+
+          <aside class="hero-card reveal">
+            <div class="portrait">
+              <img
+                data-src-candidates="assets/images/hero.jpg|assets/images/hero.png|assets/images/hero.svg"
+                alt="Portrait of Mister Bounce"
+              />
+              <div>
+                <h3>Featured Mix</h3>
+                <p>Press play for a quick preview. Replace with your latest mix file or link.</p>
+              </div>
+            </div>
+
+            <div class="badges">
+              <span class="badge"><span class="badge-dot" aria-hidden="true"></span> Live bookings</span>
+              <span class="badge">UK / EU</span>
+              <span class="badge">House • Soul • Groove</span>
+            </div>
+
+            <div class="player" aria-label="Audio player">
+              <div class="player-top">
+                <div class="player-title">Featured Mix</div>
+              </div>
+
+              <audio id="audio" preload="metadata">
+                <source
+                  src="assets/audio/featured.wav"
+                  type="audio/wav"
+                />
+                <source
+                  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                  type="audio/mpeg"
+                />
+              </audio>
+
+              <div class="player-controls">
+                <button class="play" id="play" type="button" aria-label="Play">▶</button>
+                <div class="bar" id="bar" aria-label="Seek bar">
+                  <div id="fill"></div>
+                </div>
+                <div class="time" aria-label="Time display"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+              </div>
+
+              <div class="volume">
+                <span aria-hidden="true">🔊</span>
+                <input id="vol" type="range" min="0" max="100" value="70" aria-label="Volume" />
+              </div>
+            </div>
+
+            <div class="quick-shots" aria-label="Featured photos">
+              <div class="quick-shots-head">
+                <div class="quick-shots-title">Featured Photos</div>
+                <div class="quick-shots-sub">Add the 3 images you sent into the gallery folder.</div>
+              </div>
+              <div class="quick-shots-grid">
+                <div class="shot shot--mini" role="button" tabindex="0" data-full="assets/images/gallery/shot-2.svg">
+                  <img
+                    data-src-candidates="assets/images/gallery/insta-1.png|assets/images/gallery/insta-1.jpg|assets/images/gallery/shot-2.svg"
+                    alt="Mister Bounce featured photo 1"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="shot shot--mini" role="button" tabindex="0" data-full="assets/images/gallery/shot-3.svg">
+                  <img
+                    data-src-candidates="assets/images/gallery/insta-2.png|assets/images/gallery/insta-2.jpg|assets/images/gallery/shot-3.svg"
+                    alt="Mister Bounce featured photo 2"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="shot shot--mini" role="button" tabindex="0" data-full="assets/images/gallery/shot-4.svg">
+                  <img
+                    data-src-candidates="assets/images/gallery/insta-3.png|assets/images/gallery/insta-3.jpg|assets/images/gallery/shot-4.svg"
+                    alt="Mister Bounce featured photo 3"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="tours">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Tour Dates</h2>
+            <p>Upcoming shows and appearances. Use “Add to Calendar” to save a date in one click.</p>
+          </div>
+
+          <div class="tour-controls reveal" role="group" aria-label="Tour filters">
+            <button class="pill" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="pill" type="button" data-filter="uk" aria-pressed="false">UK</button>
+            <button class="pill" type="button" data-filter="eu" aria-pressed="false">EU / Intl</button>
+          </div>
+
+          <div class="tours" id="toursMount" aria-label="Tour list"></div>
+        </div>
+      </section>
+
+      <section id="photos">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Photos</h2>
+            <p>Promo and press shots for flyers, line-ups, and features. Click to view full size.</p>
+          </div>
+
+          <div class="card gallery reveal">
+            <div class="gallery-grid" aria-label="Photo gallery">
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/hero.svg">
+                <img data-src-candidates="assets/images/gallery/insta-1.png|assets/images/gallery/insta-1.jpg|assets/images/hero.svg" alt="Mister Bounce promo photo 1" loading="lazy" />
+              </div>
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/gallery/shot-2.svg">
+                <img data-src-candidates="assets/images/gallery/insta-2.png|assets/images/gallery/insta-2.jpg|assets/images/gallery/shot-2.svg" alt="Mister Bounce promo photo 2" loading="lazy" />
+              </div>
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/gallery/shot-3.svg">
+                <img data-src-candidates="assets/images/gallery/insta-3.png|assets/images/gallery/insta-3.jpg|assets/images/gallery/shot-3.svg" alt="Mister Bounce promo photo 3" loading="lazy" />
+              </div>
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/gallery/shot-4.svg">
+                <img data-src-candidates="assets/images/gallery/insta-4.png|assets/images/gallery/insta-4.jpg|assets/images/gallery/shot-4.svg" alt="Mister Bounce promo photo 4" loading="lazy" />
+              </div>
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/gallery/shot-5.svg">
+                <img data-src-candidates="assets/images/gallery/insta-5.png|assets/images/gallery/insta-5.jpg|assets/images/gallery/shot-5.svg" alt="Mister Bounce promo photo 5" loading="lazy" />
+              </div>
+              <div class="shot" role="button" tabindex="0" data-full="assets/images/gallery/shot-6.svg">
+                <img data-src-candidates="assets/images/gallery/insta-6.png|assets/images/gallery/insta-6.jpg|assets/images/gallery/shot-6.svg" alt="Mister Bounce promo photo 6" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Image viewer">
+          <div class="lightbox-inner">
+            <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">✕</button>
+            <img id="lightboxImg" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section id="links">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Connect & Listen</h2>
+            <p>Follow, stream, and stay updated across platforms.</p>
+          </div>
+
+          <div class="grid links">
+            <a class="card link reveal" href="https://www.instagram.com/misterbounce/?hl=en-gb" target="_blank" rel="noreferrer">
+              <div class="link-top">
+                <h3>Instagram</h3>
+                <span class="chip">@misterbounce</span>
+              </div>
+              <p>Behind the scenes, live clips & show updates</p>
+            </a>
+            <a class="card link reveal" href="https://mixcloud.com/YOURPROFILE" target="_blank" rel="noreferrer">
+              <div class="link-top">
+                <h3>Mixcloud</h3>
+                <span class="chip">Shows</span>
+              </div>
+              <p>Full radio shows, DJ sets & archives</p>
+            </a>
+            <a class="card link reveal" href="https://soundcloud.com/YOURPROFILE" target="_blank" rel="noreferrer">
+              <div class="link-top">
+                <h3>SoundCloud</h3>
+                <span class="chip">Tracks</span>
+              </div>
+              <p>Edits, remixes & studio sessions</p>
+            </a>
+            <a class="card link reveal" href="https://youtube.com/@YOURCHANNEL" target="_blank" rel="noreferrer">
+              <div class="link-top">
+                <h3>YouTube</h3>
+                <span class="chip">Video</span>
+              </div>
+              <p>Performances & live streams</p>
+            </a>
+            <a class="card link reveal" href="https://open.spotify.com/artist/YOURARTIST" target="_blank" rel="noreferrer">
+              <div class="link-top">
+                <h3>Spotify</h3>
+                <span class="chip">Playlists</span>
+              </div>
+              <p>Curated playlists & featured mixes</p>
+            </a>
+            <a class="card link reveal" href="#contact">
+              <div class="link-top">
+                <h3>Bookings</h3>
+                <span class="chip">Email</span>
+              </div>
+              <p>Enquiries for events, radio, voice work</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="music">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Music & Mixes</h2>
+            <p>Stream the latest set, then dive into hip-hop playlists and the archive.</p>
+          </div>
+
+          <div class="music-grid">
+            <div class="card music-card reveal">
+              <h3>Latest Mix</h3>
+              <p>Replace this embed with your Mixcloud or SoundCloud “Share → Embed” code.</p>
+              <div class="embed" aria-label="Embedded player">
+                <iframe
+                  src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FNTSRadio%2Fnts-radio-26-november-2024%2F"
+                  title="Mixcloud player"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <p class="note">Tip: update links above so people can follow and save shows.</p>
+            </div>
+
+            <div class="card music-card reveal">
+              <h3>Hip-Hop Playlist</h3>
+              <p>Use a free YouTube playlist or a SoundCloud set (your own uploads/mixes recommended).</p>
+              <div class="embed" aria-label="YouTube playlist">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID"
+                  title="YouTube playlist"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p class="note">Replace `YOUR_PLAYLIST_ID` in the iframe URL with your playlist ID.</p>
+              <div style="margin-top: 12px; display: grid; gap: 10px;">
+                <a class="btn btn-ghost" href="https://mixcloud.com/YOURPROFILE" target="_blank" rel="noreferrer">🎧 View all shows</a>
+                <a class="btn btn-ghost" href="https://soundcloud.com/YOURPROFILE" target="_blank" rel="noreferrer">🔊 SoundCloud</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Bookings & Contact</h2>
+            <p>For bookings, collaborations, or general enquiries — drop a message and I’ll get back to you.</p>
+          </div>
+
+          <div class="contact">
+            <div class="card form reveal">
+              <h3 style="margin: 0 0 10px;">Send a message</h3>
+              <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="booking" />
+                <p style="display: none;">
+                  <label>Don’t fill this out: <input name="bot-field" /></label>
+                </p>
+
+                <div class="row">
+                  <div>
+                    <label for="name">Name *</label>
+                    <input id="name" name="name" type="text" autocomplete="name" required />
+                  </div>
+                  <div>
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div>
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell me the date, location, set length, and vibe."></textarea>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit" style="width: 100%;">Send message</button>
+                <p class="note">By sending this form, you agree that I may use your details to respond to your enquiry.</p>
+              </form>
+            </div>
+
+            <div class="card info reveal">
+              <h3 style="margin: 0 0 10px;">Direct contact</h3>
+              <p class="muted" style="margin-top: 0;">Prefer to reach out directly? Use any of the options below.</p>
+
+              <div style="margin-top: 14px; display: grid; gap: 14px;">
+                <div>
+                  <div class="muted" style="font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.82rem;">Email</div>
+                  <a href="mailto:bookings@misterbounce.co.uk">bookings@misterbounce.co.uk</a>
+                </div>
+                <div>
+                  <div class="muted" style="font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.82rem;">Instagram</div>
+                  <a href="https://www.instagram.com/misterbounce/?hl=en-gb" target="_blank" rel="noreferrer">@misterbounce</a>
+                </div>
+                <div>
+                  <div class="muted" style="font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.82rem;">Phone</div>
+                  <a href="tel:+44XXXXXXXXXX">+44 XXX XXX XXXX</a>
+                </div>
+              </div>
+
+              <div style="margin-top: 18px; padding: 14px; border-radius: 16px; border: 1px solid rgba(255,51,102,0.45); background: rgba(255, 51, 102, 0.08);">
+                <div style="color: var(--a); font-weight: 900; margin-bottom: 8px;">Available for</div>
+                <div class="muted" style="display: grid; gap: 6px;">
+                  <div>✓ Club & event bookings</div>
+                  <div>✓ Radio shows & podcasts</div>
+                  <div>✓ Voiceover work</div>
+                  <div>✓ Private functions</div>
+                </div>
+              </div>
+
+              <p class="note">Response times may vary around show days, but every message is read.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div>© <span id="year"></span> Mister Bounce. All rights reserved.</div>
+        <div style="margin-top: 8px;">
+          <a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+  </body>
+</html>
