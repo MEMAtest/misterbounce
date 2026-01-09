@@ -1,15 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import { EventCard, Button } from "@/components/ui";
 import { events } from "@/data";
 import { sortEventsByDate, isFutureDate } from "@/lib/utils";
 
+const INITIAL_SHOW = 3;
+
 export default function Events() {
+  const [showAll, setShowAll] = useState(false);
+
   // Get upcoming events sorted by date
   const upcomingEvents = sortEventsByDate(
     events.filter((event) => isFutureDate(event.date))
   );
 
-  // Limit to 6 events for homepage display
-  const displayEvents = upcomingEvents.slice(0, 6);
+  // Show 3 initially, or all if expanded
+  const displayEvents = showAll
+    ? upcomingEvents.slice(0, 6)
+    : upcomingEvents.slice(0, INITIAL_SHOW);
+
+  const hasMoreEvents = upcomingEvents.length > INITIAL_SHOW;
 
   return (
     <section
@@ -82,6 +93,32 @@ export default function Events() {
                 </div>
               ))}
             </div>
+
+            {/* Show more/less button */}
+            {hasMoreEvents && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setShowAll(!showAll)}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-border rounded-lg font-medium text-text-body hover:bg-muted transition-colors"
+                >
+                  {showAll ? (
+                    <>
+                      Show less
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      Show {Math.min(upcomingEvents.length - INITIAL_SHOW, 3)} more events
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="text-center py-16 bg-white rounded-2xl border border-border/50 shadow-sm">
