@@ -1,0 +1,8 @@
+Add your downloaded Instagram photos here (don’t hotlink IG links).
+
+Recommended:
+- `insta-1.png` … `insta-6.png` (or `.jpg`) (1600px wide or larger)
+
+Optional:
+- If you want the hero image to be your Instagram portrait, save it to:
+  - `../hero.jpg` (or `../hero.png`)
