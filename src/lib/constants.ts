@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
     "Professional DJ, Radio Host, and Voiceover Artist. Book for clubs, events, radio shows, and private functions.",
   url: "https://misterbounce.co.uk",
   email: "info@misterbounce.co.uk",
-  phone: "+44 XXXXXXXXXX",
+  phone: "07940290714",
 };
 
 // Navigation items
