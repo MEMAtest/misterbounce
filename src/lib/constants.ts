@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   description:
     "Professional DJ, Radio Host, and Voiceover Artist. Book for clubs, events, radio shows, and private functions.",
   url: "https://misterbounce.co.uk",
-  email: "bookings@misterbounce.co.uk",
+  email: "info@misterbounce.co.uk",
   phone: "+44 XXXXXXXXXX",
 };
 
