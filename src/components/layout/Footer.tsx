@@ -36,26 +36,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#videos"
-                  className="text-sm text-text-body hover:text-text-heading transition-colors"
-                >
-                  Videos
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#music"
                   className="text-sm text-text-body hover:text-text-heading transition-colors"
                 >
                   Mixes & Music
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#shop"
-                  className="text-sm text-text-body hover:text-text-heading transition-colors"
-                >
-                  Shop
                 </Link>
               </li>
               <li>

@@ -8,4 +8,3 @@ export {
   featuredMix,
   musicProfiles,
 } from "./music";
-export { featuredTiles } from "./featured";

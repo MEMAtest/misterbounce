@@ -1,46 +1,24 @@
 import type { Mix } from "@/types";
 
-// Mixcloud mixes - feed path format (component builds full URL)
-// Replace with your own Mixcloud mix paths when available
+// Mixcloud mixes - Mister Bounce's own mixes
 export const mixcloudMixes: Mix[] = [
   {
     id: "1",
-    title: "Defected Radio - House Music",
+    title: "Mister Bounce - Live Mix",
     platform: "mixcloud",
-    embedUrl: "/Defected/defected-radio-show-hosted-by-sam-divine-090623/",
-    externalUrl: "https://www.mixcloud.com/Defected/defected-radio-show-hosted-by-sam-divine-090623/",
-  },
-  {
-    id: "2",
-    title: "Glitterbox Radio - Disco & House",
-    platform: "mixcloud",
-    embedUrl: "/Glitterbox/glitterbox-radio-show-369/",
-    externalUrl: "https://www.mixcloud.com/Glitterbox/glitterbox-radio-show-369/",
-  },
-  {
-    id: "3",
-    title: "Ministry of Sound - Classic House",
-    platform: "mixcloud",
-    embedUrl: "/ministryofsound/ministry-of-sound-classical-house-orchestra/",
-    externalUrl: "https://www.mixcloud.com/ministryofsound/ministry-of-sound-classical-house-orchestra/",
+    embedUrl: "/misterbounceuk/mister-bounce-live-mix/",
+    externalUrl: "https://www.mixcloud.com/misterbounceuk/",
   },
 ];
 
-// SoundCloud tracks - public house music tracks
+// SoundCloud tracks - Mister Bounce originals
 export const soundcloudTracks: Mix[] = [
   {
     id: "1",
-    title: "Disclosure - Latch",
+    title: "Old Skool RnB Sample",
     platform: "soundcloud",
-    embedUrl: "https://soundcloud.com/disclosuremusic/latch-feat-sam-smith",
-    externalUrl: "https://soundcloud.com/disclosuremusic/latch-feat-sam-smith",
-  },
-  {
-    id: "2",
-    title: "Duke Dumont - I Got U",
-    platform: "soundcloud",
-    embedUrl: "https://soundcloud.com/dukedumont/i-got-u-feat-jax-jones",
-    externalUrl: "https://soundcloud.com/dukedumont/i-got-u-feat-jax-jones",
+    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
   },
 ];
 
@@ -63,8 +41,8 @@ export const featuredMix = mixcloudMixes[0];
 
 // External profile URLs
 export const musicProfiles = {
-  mixcloud: "https://mixcloud.com/misterbounce",
-  soundcloud: "https://soundcloud.com/misterbounce",
-  spotify: "https://open.spotify.com/artist/misterbounce", // Replace with actual Spotify artist URL
-  bandcamp: "https://misterbounce.bandcamp.com",
+  mixcloud: "https://www.mixcloud.com/misterbounceuk/",
+  soundcloud: "https://soundcloud.com/misterbounceuk",
+  spotify: "", // Add when available
+  bandcamp: "", // Add when available
 };
