@@ -4,6 +4,7 @@ export { products, STORE_URL } from "./products";
 export {
   mixcloudMixes,
   soundcloudTracks,
+  externalPlayers,
   localTracks,
   featuredMix,
   musicProfiles,

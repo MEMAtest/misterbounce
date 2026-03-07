@@ -1,24 +1,35 @@
 import type { Mix } from "@/types";
 
-// Mixcloud / Autopod mixes - full-length mixes
-export const mixcloudMixes: Mix[] = [
-  {
-    id: "1",
-    title: "Mister Bounce - Live Mix",
-    platform: "mixcloud",
-    embedUrl: "https://player.autopod.xyz/1214098",
-    externalUrl: "https://www.mixcloud.com/misterbounceuk/",
-  },
-];
-
-// SoundCloud tracks
+// SoundCloud tracks — use the public permalink URL
+// If the track is private, the embed won't load (set track to public on SoundCloud)
 export const soundcloudTracks: Mix[] = [
   {
     id: "1",
     title: "Old Skool RnB Sample",
     platform: "soundcloud",
-    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample/s-xDjPI",
-    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample/s-xDjPI?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=c260fbf4404a455489279101b273f25d",
+    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+  },
+];
+
+// Mixcloud profile — embedded as a profile widget
+export const mixcloudMixes: Mix[] = [
+  {
+    id: "1",
+    title: "Mister Bounce on Mixcloud",
+    platform: "mixcloud",
+    embedUrl: "/misterbounceuk/",
+    externalUrl: "https://www.mixcloud.com/misterbounceuk/",
+  },
+];
+
+// External players / radio shows (linked, not embedded)
+export const externalPlayers = [
+  {
+    id: "1",
+    title: "Mister Bounce on Flex FM",
+    url: "https://player.autopod.xyz/1214098",
+    description: "Listen on demand via Flex FM",
   },
 ];
 
