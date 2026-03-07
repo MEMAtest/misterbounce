@@ -4,6 +4,23 @@ import { useState } from "react";
 import { Button, Card } from "@/components/ui";
 import { SITE_CONFIG, SOCIAL_LINKS, BOOKING_SERVICES } from "@/lib/constants";
 
+const EVENT_TYPES = [
+  "Club Night",
+  "Private Event",
+  "Corporate Function",
+  "Radio Show",
+  "Voiceover",
+  "Other",
+];
+
+const BUDGET_RANGES = [
+  "Prefer not to say",
+  "Under £500",
+  "£500 - £1,000",
+  "£1,000 - £2,500",
+  "£2,500+",
+];
+
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -31,6 +48,9 @@ export default function Contact() {
   };
 
   const instagramLink = SOCIAL_LINKS.find((link) => link.id === "instagram");
+
+  const inputClasses =
+    "w-full px-4 py-3 rounded-lg border border-border bg-white text-text-heading placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors";
 
   return (
     <section id="contact" className="section relative overflow-hidden">
@@ -95,7 +115,7 @@ export default function Contact() {
                 data-netlify="true"
                 netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
-                className="space-y-6"
+                className="space-y-5"
               >
                 {/* Netlify form config */}
                 <input type="hidden" name="form-name" value="booking" />
@@ -108,55 +128,109 @@ export default function Contact() {
 
                 {/* Name */}
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-text-heading mb-2"
-                  >
-                    Name
+                  <label htmlFor="name" className="block text-sm font-medium text-text-heading mb-2">
+                    Name *
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-white text-text-heading placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                    className={inputClasses}
                     placeholder="Your name"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-text-heading mb-2"
-                  >
-                    Email
+                  <label htmlFor="email" className="block text-sm font-medium text-text-heading mb-2">
+                    Email *
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-white text-text-heading placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                    className={inputClasses}
                     placeholder="your@email.com"
                   />
                 </div>
 
+                {/* Event Type */}
+                <div>
+                  <label htmlFor="event-type" className="block text-sm font-medium text-text-heading mb-2">
+                    Event Type
+                  </label>
+                  <select
+                    id="event-type"
+                    name="event-type"
+                    className={inputClasses}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Select event type...</option>
+                    {EVENT_TYPES.map((type) => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Date & Location row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="event-date" className="block text-sm font-medium text-text-heading mb-2">
+                      Event Date
+                    </label>
+                    <input
+                      type="date"
+                      id="event-date"
+                      name="event-date"
+                      className={inputClasses}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="venue" className="block text-sm font-medium text-text-heading mb-2">
+                      Venue / Location
+                    </label>
+                    <input
+                      type="text"
+                      id="venue"
+                      name="venue"
+                      className={inputClasses}
+                      placeholder="Venue name or city"
+                    />
+                  </div>
+                </div>
+
+                {/* Budget */}
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium text-text-heading mb-2">
+                    Budget Range (optional)
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    className={inputClasses}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Select budget range...</option>
+                    {BUDGET_RANGES.map((range) => (
+                      <option key={range} value={range}>{range}</option>
+                    ))}
+                  </select>
+                </div>
+
                 {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-text-heading mb-2"
-                  >
-                    Message
+                  <label htmlFor="message" className="block text-sm font-medium text-text-heading mb-2">
+                    Message *
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-white text-text-heading placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell me about your event, date, venue, and any other details..."
+                    rows={4}
+                    className={`${inputClasses} resize-none`}
+                    placeholder="Tell me about your event and any other details..."
                   />
                 </div>
 
@@ -168,7 +242,7 @@ export default function Contact() {
                   className="w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Booking Enquiry"}
                 </Button>
               </form>
             )}
@@ -187,18 +261,8 @@ export default function Contact() {
                   className="flex items-center gap-3 text-text-body hover:text-text-heading transition-colors"
                 >
                   <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   {SITE_CONFIG.email}
@@ -212,11 +276,7 @@ export default function Contact() {
                     className="flex items-center gap-3 text-text-body hover:text-text-heading transition-colors"
                   >
                     <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                       </svg>
                     </div>
@@ -233,22 +293,9 @@ export default function Contact() {
               </h3>
               <ul className="space-y-2">
                 {BOOKING_SERVICES.map((service) => (
-                  <li
-                    key={service}
-                    className="flex items-center gap-2 text-text-body"
-                  >
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
+                  <li key={service} className="flex items-center gap-2 text-text-body">
+                    <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {service}
                   </li>

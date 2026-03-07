@@ -1,5 +1,7 @@
 export { default as Hero } from "./Hero";
 export { default as FeaturedGrid } from "./FeaturedGrid";
+export { default as About } from "./About";
+export { default as Gallery } from "./Gallery";
 export { default as Events } from "./Events";
 export { default as Videos } from "./Videos";
 export { default as Music } from "./Music";

@@ -1,6 +1,6 @@
 import type { Mix } from "@/types";
 
-// Mixcloud mixes - Mister Bounce's own mixes
+// Mixcloud mixes - add full-length mixes here
 export const mixcloudMixes: Mix[] = [
   {
     id: "1",
@@ -11,7 +11,7 @@ export const mixcloudMixes: Mix[] = [
   },
 ];
 
-// SoundCloud tracks - Mister Bounce originals
+// SoundCloud tracks
 export const soundcloudTracks: Mix[] = [
   {
     id: "1",
@@ -43,6 +43,4 @@ export const featuredMix = mixcloudMixes[0];
 export const musicProfiles = {
   mixcloud: "https://www.mixcloud.com/misterbounceuk/",
   soundcloud: "https://soundcloud.com/misterbounceuk",
-  spotify: "", // Add when available
-  bandcamp: "", // Add when available
 };

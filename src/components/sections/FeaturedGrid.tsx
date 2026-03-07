@@ -25,7 +25,7 @@ const tiles = [
     category: "GALLERY",
     title: "PHOTOS",
     subtitle: "Behind the decks",
-    href: "#contact",
+    href: "#gallery",
     image: "/images/gallery/crush/crush-dj-booth-4.jpg",
     hoverText: "See more photos",
   },

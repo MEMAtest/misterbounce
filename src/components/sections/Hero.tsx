@@ -1,13 +1,41 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
+
+const SLIDE_INTERVAL = 8000; // 8 seconds per slide
 
 export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const totalSlides = videoLoaded ? 2 : 1;
+
+  const goToSlide = useCallback((index: number) => {
+    setActiveSlide(index);
+    // Reset auto-advance timer
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (totalSlides > 1) {
+      timerRef.current = setInterval(() => {
+        setActiveSlide((prev) => (prev + 1) % totalSlides);
+      }, SLIDE_INTERVAL);
+    }
+  }, [totalSlides]);
+
+  // Auto-advance slides
+  useEffect(() => {
+    if (totalSlides <= 1) return;
+    timerRef.current = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % totalSlides);
+    }, SLIDE_INTERVAL);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [totalSlides]);
 
   // Sync audio state with actual playback
   useEffect(() => {
@@ -46,6 +74,18 @@ export default function Hero() {
     };
   }, []);
 
+  // Play/pause video based on active slide
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !videoLoaded) return;
+
+    if (activeSlide === 1) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [activeSlide, videoLoaded]);
+
   const toggleAudio = async () => {
     if (audioRef.current) {
       try {
@@ -63,33 +103,13 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background audio - add upbeat house track as /audio/featured.mp3 or .wav */}
-      <audio
-        ref={audioRef}
-        loop
-        preload="none"
-      >
+      {/* Background audio */}
+      <audio ref={audioRef} loop preload="none">
         <source src="/audio/featured.mp3" type="audio/mpeg" />
         <source src="/audio/featured.wav" type="audio/wav" />
       </audio>
 
-      {/* Video Background - loops silently, falls back to image */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          videoLoaded ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {/* Add your video file as /videos/hero.mp4 - recommend DJ/party/dance footage */}
-        <source src="/videos/hero.mp4" type="video/mp4" />
-        <source src="/videos/hero.webm" type="video/webm" />
-      </video>
-
-      {/* Full-bleed background image (fallback when video not loaded) */}
+      {/* Slide 1: Photo */}
       <Image
         src="/images/gallery/IMG-20260108-WA0016.jpg"
         alt="Mister Bounce"
@@ -97,16 +117,30 @@ export default function Hero() {
         priority
         sizes="100vw"
         className={`object-cover object-center transition-opacity duration-1000 ${
-          videoLoaded ? "opacity-0" : "opacity-100"
+          activeSlide === 0 ? "opacity-100" : "opacity-0"
         }`}
       />
+
+      {/* Slide 2: Video (only rendered, shown when loaded) */}
+      <video
+        ref={videoRef}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          activeSlide === 1 && videoLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero.webm" type="video/webm" />
+      </video>
 
       {/* Dark overlay for text legibility */}
       <div className="absolute inset-0 bg-black/40" />
 
-      {/* Content layer - shifted left to show DJ */}
+      {/* Content layer */}
       <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-8 md:px-16 lg:px-24">
-        {/* Welcome text - elegant script style */}
         <p
           className="text-white/90 mb-2 md:mb-4"
           style={{
@@ -118,7 +152,6 @@ export default function Hero() {
           Welcome to
         </p>
 
-        {/* Name typography - sized to show the DJ */}
         <h1
           style={{
             fontSize: "clamp(2.5rem, 12vw, 9rem)",
@@ -134,7 +167,6 @@ export default function Hero() {
           <span className="block">BOUNCE</span>
         </h1>
 
-        {/* Tagline */}
         <p
           className="mt-6 md:mt-8 text-lg md:text-xl max-w-xl font-bold tracking-widest"
           style={{
@@ -145,7 +177,6 @@ export default function Hero() {
           HOUSE • SOUL • GROOVE
         </p>
 
-        {/* CTA Buttons */}
         <div className="mt-8 md:mt-12 flex flex-wrap gap-4">
           <a
             href="#events"
@@ -161,6 +192,43 @@ export default function Hero() {
           </a>
         </div>
       </div>
+
+      {/* Slide indicators — only show when video is available */}
+      {totalSlides > 1 && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+          {Array.from({ length: totalSlides }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goToSlide(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                activeSlide === i
+                  ? "bg-white w-8"
+                  : "bg-white/40 hover:bg-white/60"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Scroll indicator — only when single slide */}
+      {totalSlides === 1 && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg
+            className="w-6 h-6 text-white/70"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      )}
 
       {/* Audio control button */}
       <button
@@ -178,23 +246,6 @@ export default function Hero() {
           </svg>
         )}
       </button>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-white/70"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

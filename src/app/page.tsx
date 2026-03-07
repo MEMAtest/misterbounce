@@ -1,6 +1,8 @@
 import {
   Hero,
   FeaturedGrid,
+  About,
+  Gallery,
   Events,
   Music,
   Contact,
@@ -11,6 +13,8 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedGrid />
+      <About />
+      <Gallery />
       <Events />
       <Music />
       <Contact />

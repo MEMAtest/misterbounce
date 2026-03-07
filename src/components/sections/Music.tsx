@@ -1,15 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui";
-import { localTracks, musicProfiles, soundcloudTracks } from "@/data";
+import { localTracks, mixcloudMixes, musicProfiles, soundcloudTracks } from "@/data";
 
 export default function Music() {
-  // Only show platform links that have URLs
   const platformLinks = [
     { label: "Mixcloud", url: musicProfiles.mixcloud },
     { label: "SoundCloud", url: musicProfiles.soundcloud },
-    { label: "Spotify", url: musicProfiles.spotify },
-    { label: "Bandcamp", url: musicProfiles.bandcamp },
   ].filter((link) => link.url);
 
   return (
@@ -21,16 +18,16 @@ export default function Music() {
             Mixes & <span className="text-primary">Music</span>
           </h2>
           <p className="text-lg text-text-body max-w-2xl mx-auto">
-            Listen to mixes and tracks - hit play to preview
+            Listen to mixes and tracks — hit play to preview
           </p>
         </div>
 
-        {/* SoundCloud Embed */}
+        {/* SoundCloud Embed — large with artwork */}
         {soundcloudTracks.length > 0 && (
-          <div className="max-w-2xl mx-auto mb-8">
+          <div className="max-w-3xl mx-auto mb-10">
             {soundcloudTracks.map((track) => (
-              <div key={track.id} className="bg-white rounded-xl p-5 shadow-sm border border-border/50">
-                <p className="text-base font-bold text-text-heading mb-3">{track.title}</p>
+              <div key={track.id} className="bg-white rounded-2xl p-6 shadow-md border border-border/50">
+                <p className="text-lg font-bold text-text-heading mb-4">{track.title}</p>
                 <iframe
                   width="100%"
                   height="166"
@@ -45,12 +42,33 @@ export default function Music() {
           </div>
         )}
 
+        {/* Mixcloud Embed — full mixes */}
+        {mixcloudMixes.length > 0 && (
+          <div className="max-w-3xl mx-auto mb-10">
+            <h3 className="text-xl font-bold text-text-heading mb-4 text-center">Full Mixes</h3>
+            {mixcloudMixes.map((mix) => (
+              <div key={mix.id} className="bg-white rounded-2xl p-6 shadow-md border border-border/50">
+                <p className="text-lg font-bold text-text-heading mb-4">{mix.title}</p>
+                <iframe
+                  width="100%"
+                  height="120"
+                  src={`https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=${encodeURIComponent(mix.embedUrl)}`}
+                  frameBorder="0"
+                  className="rounded-lg"
+                  allow="autoplay"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Audio Tracks */}
         {localTracks.length > 0 && (
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-xl font-bold text-text-heading mb-4 text-center">Preview Tracks</h3>
             <div className="grid gap-4">
               {localTracks.map((track) => (
-                <div key={track.id} className="bg-white rounded-xl p-5 shadow-sm border border-border/50 hover:shadow-md transition-shadow">
+                <div key={track.id} className="bg-white rounded-2xl p-5 shadow-md border border-border/50 hover:shadow-lg transition-shadow">
                   <p className="text-base font-bold text-text-heading mb-3">{track.title}</p>
                   <audio controls className="w-full h-12" preload="none">
                     <source src={track.src} type="audio/mpeg" />
