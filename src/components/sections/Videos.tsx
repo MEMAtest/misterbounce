@@ -1,67 +1,69 @@
-import { VideoCard, Carousel, CarouselItem, Button } from "@/components/ui";
-import { videos } from "@/data";
-import { SOCIAL_LINKS } from "@/lib/constants";
+"use client";
+
+import { useState } from "react";
+
+const localVideos = [
+  {
+    id: "1",
+    title: "Live Set",
+    src: "/videos/video-2.mp4",
+    aspect: "landscape" as const,
+  },
+  {
+    id: "2",
+    title: "Behind the Decks",
+    src: "/videos/video-3.mp4",
+    aspect: "portrait" as const,
+  },
+];
 
 export default function Videos() {
-  const youtubeLink = SOCIAL_LINKS.find((link) => link.id === "youtube");
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
+  const handlePlay = (id: string) => setPlayingId(id);
+  const handlePause = () => setPlayingId(null);
 
   return (
-    <section id="videos" className="section bg-muted">
+    <section id="videos" className="section bg-black">
       <div className="container">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-heading mb-2">
-              Videos
-            </h2>
-            <p className="text-text-body">
-              Watch live sets, performances, and behind the scenes content
-            </p>
-          </div>
-
-          {youtubeLink && (
-            <Button
-              href={youtubeLink.url}
-              isExternal
-              variant="ghost"
-              size="sm"
-            >
-              Subscribe on YouTube
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </Button>
-          )}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-3">
+            Live <span className="text-primary">Videos</span>
+          </h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            Watch live sets, performances &amp; behind the scenes
+          </p>
         </div>
 
-        {/* Videos Carousel */}
-        <Carousel gap="md">
-          {videos.map((video) => (
-            <CarouselItem
+        {/* Video Grid */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {localVideos.map((video) => (
+            <div
               key={video.id}
-              className="w-[280px] sm:w-[320px] md:w-[380px]"
+              className={`relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 ${
+                video.aspect === "portrait" ? "max-w-sm mx-auto w-full" : ""
+              }`}
             >
-              <VideoCard {...video} />
-            </CarouselItem>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-auto"
+                onPlay={() => handlePlay(video.id)}
+                onPause={handlePause}
+                onEnded={handlePause}
+              >
+                <source src={video.src} type="video/mp4" />
+              </video>
+              <div className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none transition-opacity duration-300 ${
+                playingId === video.id ? "opacity-0" : "opacity-100"
+              }`}>
+                <p className="text-white font-bold text-lg">{video.title}</p>
+              </div>
+            </div>
           ))}
-        </Carousel>
-
-        {/* Alternative: Grid layout for larger screens */}
-        {/* <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-          {videos.slice(0, 6).map((video) => (
-            <VideoCard key={video.id} {...video} />
-          ))}
-        </div> */}
+        </div>
       </div>
     </section>
   );

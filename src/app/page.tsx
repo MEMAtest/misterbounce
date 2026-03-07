@@ -3,6 +3,7 @@ import {
   FeaturedGrid,
   About,
   Gallery,
+  Videos,
   Events,
   Music,
   Contact,
@@ -15,6 +16,7 @@ export default function Home() {
       <FeaturedGrid />
       <About />
       <Gallery />
+      <Videos />
       <Events />
       <Music />
       <Contact />
