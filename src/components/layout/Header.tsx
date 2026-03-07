@@ -57,7 +57,7 @@ export default function Header() {
             <ul className="hidden md:flex items-center gap-8">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     className={cn(
                       "text-sm font-medium transition-colors",
@@ -67,14 +67,14 @@ export default function Header() {
                     )}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
 
             {/* Book Now CTA */}
             <div className="hidden md:block">
-              <Link
+              <a
                 href="#contact"
                 className={cn(
                   "inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30",
@@ -84,7 +84,7 @@ export default function Header() {
                 )}
               >
                 Book Now
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}

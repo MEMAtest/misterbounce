@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 
 const tiles = [
@@ -49,7 +48,7 @@ export default function FeaturedGrid() {
       {/* Full-width grid - no container, edge to edge */}
       <div className="grid grid-cols-2 md:grid-cols-4">
         {tiles.map((tile) => (
-          <Link
+          <a
             key={tile.id}
             href={tile.href}
             className="group relative aspect-[4/5] md:aspect-[3/4] overflow-hidden"
@@ -96,7 +95,7 @@ export default function FeaturedGrid() {
 
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-          </Link>
+          </a>
         ))}
       </div>
     </section>

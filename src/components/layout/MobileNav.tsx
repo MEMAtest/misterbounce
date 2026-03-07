@@ -85,26 +85,26 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <ul className="space-y-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <Link
+                <a
                   href={item.href}
                   onClick={onClose}
                   className="block py-3 px-4 text-lg font-medium text-text-heading hover:bg-muted rounded-lg transition-colors"
                 >
                   {item.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
 
           {/* Book Now CTA */}
           <div className="mt-6 pt-6 border-t border-border">
-            <Link
+            <a
               href="#contact"
               onClick={onClose}
               className="flex items-center justify-center w-full py-3 text-base font-medium text-primary-foreground bg-secondary hover:bg-secondary-hover rounded-lg transition-colors"
             >
               Book Now
-            </Link>
+            </a>
           </div>
 
           {/* Social Links */}
