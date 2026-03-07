@@ -1,12 +1,12 @@
 import type { Mix } from "@/types";
 
-// Mixcloud mixes - add full-length mixes here
+// Mixcloud / Autopod mixes - full-length mixes
 export const mixcloudMixes: Mix[] = [
   {
     id: "1",
     title: "Mister Bounce - Live Mix",
     platform: "mixcloud",
-    embedUrl: "/misterbounceuk/mister-bounce-live-mix/",
+    embedUrl: "https://player.autopod.xyz/1214098",
     externalUrl: "https://www.mixcloud.com/misterbounceuk/",
   },
 ];
@@ -17,8 +17,8 @@ export const soundcloudTracks: Mix[] = [
     id: "1",
     title: "Old Skool RnB Sample",
     platform: "soundcloud",
-    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
-    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample/s-xDjPI",
+    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample/s-xDjPI?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=c260fbf4404a455489279101b273f25d",
   },
 ];
 

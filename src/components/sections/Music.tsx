@@ -51,8 +51,8 @@ export default function Music() {
                 <p className="text-lg font-bold text-text-heading mb-4">{mix.title}</p>
                 <iframe
                   width="100%"
-                  height="120"
-                  src={`https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=${encodeURIComponent(mix.embedUrl)}`}
+                  height="200"
+                  src={mix.embedUrl}
                   frameBorder="0"
                   className="rounded-lg"
                   allow="autoplay"
