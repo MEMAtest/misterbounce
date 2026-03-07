@@ -8,7 +8,7 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), encrypted-media=(self \"https://player-widget.mixcloud.com\" \"https://w.soundcloud.com\")"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), encrypted-media=*"
 
 # Cache static assets
 [[headers]]

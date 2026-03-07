@@ -15,6 +15,7 @@ export const SITE_CONFIG = {
 export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Videos", href: "#videos" },
   { label: "Events", href: "#events" },
   { label: "Music", href: "#music" },
   { label: "Contact", href: "#contact" },

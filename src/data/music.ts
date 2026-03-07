@@ -1,16 +1,8 @@
 import type { Mix } from "@/types";
 
-// SoundCloud tracks — use the public permalink URL
-// If the track is private, the embed won't load (set track to public on SoundCloud)
-export const soundcloudTracks: Mix[] = [
-  {
-    id: "1",
-    title: "Old Skool RnB Sample",
-    platform: "soundcloud",
-    embedUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
-    externalUrl: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
-  },
-];
+// SoundCloud tracks — track is currently private, so embed won't load
+// To enable: set the track to "public" on SoundCloud, then add it back here
+export const soundcloudTracks: Mix[] = [];
 
 // Mixcloud profile — embedded as a profile widget
 export const mixcloudMixes: Mix[] = [
@@ -30,6 +22,12 @@ export const externalPlayers = [
     title: "Mister Bounce on Flex FM",
     url: "https://player.autopod.xyz/1214098",
     description: "Listen on demand via Flex FM",
+  },
+  {
+    id: "2",
+    title: "Old Skool RnB Sample",
+    url: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+    description: "Listen on SoundCloud",
   },
 ];
 
