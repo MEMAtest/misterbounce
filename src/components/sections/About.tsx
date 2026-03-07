@@ -8,7 +8,7 @@ export default function About() {
           {/* Photo */}
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/gallery/crush/applebum-mic.jpg"
+              src="/images/gallery/promo/studio-1.jpg"
               alt="Mister Bounce"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
