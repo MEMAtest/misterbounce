@@ -1,37 +1,22 @@
+import musicData from "./music.json";
 import type { Mix } from "@/types";
 
-// SoundCloud tracks — track is currently private, so embed won't load
-// To enable: set the track to "public" on SoundCloud, then add it back here
-export const soundcloudTracks: Mix[] = [];
+type MixJson = { id: string; title: string; embedUrl: string; externalUrl: string };
 
-// Mixcloud profile — embedded as a profile widget
-export const mixcloudMixes: Mix[] = [
-  {
-    id: "1",
-    title: "Mister Bounce on Mixcloud",
-    platform: "mixcloud",
-    embedUrl: "/misterbounceuk/",
-    externalUrl: "https://www.mixcloud.com/misterbounceuk/",
-  },
-];
+// CMS-managed data (editable via /admin)
+export const mixcloudMixes: Mix[] = (musicData.mixcloudMixes as MixJson[]).map((m) => ({
+  ...m,
+  platform: "mixcloud" as const,
+}));
 
-// External players / radio shows (linked, not embedded)
-export const externalPlayers = [
-  {
-    id: "1",
-    title: "Mister Bounce on Flex FM",
-    url: "https://player.autopod.xyz/1214098",
-    description: "Listen on demand via Flex FM",
-  },
-  {
-    id: "2",
-    title: "Old Skool RnB Sample",
-    url: "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
-    description: "Listen on SoundCloud",
-  },
-];
+export const soundcloudTracks: Mix[] = (musicData.soundcloudTracks as MixJson[]).map((t) => ({
+  ...t,
+  platform: "soundcloud" as const,
+}));
 
-// Local audio tracks (from public/audio folder)
+export const externalPlayers = musicData.externalPlayers;
+
+// Local audio tracks — kept in code (files too large for CMS upload)
 export const localTracks = [
   {
     id: "local-1",
@@ -45,10 +30,8 @@ export const localTracks = [
   },
 ];
 
-// Featured mix for hero or highlight section
-export const featuredMix = mixcloudMixes[0];
+export const featuredMix = mixcloudMixes[0] ?? null;
 
-// External profile URLs
 export const musicProfiles = {
   mixcloud: "https://www.mixcloud.com/misterbounceuk/",
   soundcloud: "https://soundcloud.com/misterbounceuk",

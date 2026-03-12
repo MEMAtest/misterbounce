@@ -1,0 +1,25 @@
+{
+  "mixcloudMixes": [
+    {
+      "id": "1",
+      "title": "Mister Bounce on Mixcloud",
+      "embedUrl": "/misterbounceuk/",
+      "externalUrl": "https://www.mixcloud.com/misterbounceuk/"
+    }
+  ],
+  "soundcloudTracks": [],
+  "externalPlayers": [
+    {
+      "id": "1",
+      "title": "Mister Bounce on Flex FM",
+      "url": "https://player.autopod.xyz/1214098",
+      "description": "Listen on demand via Flex FM"
+    },
+    {
+      "id": "2",
+      "title": "Old Skool RnB Sample",
+      "url": "https://soundcloud.com/misterbounceuk/old-skool-rnb-sample",
+      "description": "Listen on SoundCloud"
+    }
+  ]
+}

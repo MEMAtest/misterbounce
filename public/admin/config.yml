@@ -32,3 +32,62 @@ collections:
                   - { label: "Free Entry", value: free }
                   - { label: "Guestlist Only", value: guestlist }
               - { name: ticketUrl, label: Ticket URL, widget: string, required: false, hint: "Link to buy tickets (optional)" }
+
+  - name: about
+    label: Bio & About
+    files:
+      - name: about
+        label: Bio & About
+        file: src/data/about.json
+        fields:
+          - { name: photo, label: Profile Photo, widget: image }
+          - { name: bio, label: Bio Text, widget: text, hint: "Use a blank line between paragraphs" }
+          - name: credentials
+            label: Credential Badges
+            widget: list
+
+  - name: gallery
+    label: Gallery
+    files:
+      - name: gallery
+        label: Photos
+        file: src/data/gallery.json
+        fields:
+          - name: images
+            label: Images
+            widget: list
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: Description, widget: string, required: false }
+
+  - name: music
+    label: Music & Mixes
+    files:
+      - name: music
+        label: Music & Mixes
+        file: src/data/music.json
+        fields:
+          - name: mixcloudMixes
+            label: Mixcloud Mixes
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: embedUrl, label: Mixcloud Profile Path, widget: string, hint: "e.g. /misterbounceuk/" }
+              - { name: externalUrl, label: Mixcloud Profile URL, widget: string }
+          - name: soundcloudTracks
+            label: SoundCloud Tracks
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: embedUrl, label: SoundCloud Track URL, widget: string }
+              - { name: externalUrl, label: SoundCloud Profile URL, widget: string }
+          - name: externalPlayers
+            label: External Show Links
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: title, label: Show Name, widget: string }
+              - { name: url, label: Link URL, widget: string }
+              - { name: description, label: Description, widget: string, required: false }

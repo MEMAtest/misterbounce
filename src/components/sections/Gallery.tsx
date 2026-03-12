@@ -2,37 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import galleryData from "../../data/gallery.json";
 
-const galleryImages = [
-  // Studio promo — white background
-  { src: "/images/gallery/promo/studio-1.jpg", alt: "Mister Bounce promo shot" },
-  { src: "/images/gallery/promo/studio-2.jpg", alt: "Mister Bounce studio portrait" },
-  { src: "/images/gallery/promo/studio-4.jpg", alt: "Mister Bounce B&W portrait" },
-  { src: "/images/gallery/promo/studio-6.jpg", alt: "Mister Bounce headshot" },
-  { src: "/images/gallery/promo/studio-8.jpg", alt: "Mister Bounce side profile" },
-  // Studio promo — dark background
-  { src: "/images/gallery/promo/portrait-1.jpg", alt: "Mister Bounce portrait" },
-  { src: "/images/gallery/promo/portrait-3.jpg", alt: "Mister Bounce promo" },
-  { src: "/images/gallery/promo/portrait-5.jpg", alt: "Mister Bounce press photo" },
-  // Crush & Applebum
-  { src: "/images/gallery/crush/crush-dj-booth-1.jpg", alt: "Mister Bounce at Crush" },
-  { src: "/images/gallery/crush/crush-dj-booth-2.jpg", alt: "DJ booth at Crush" },
-  { src: "/images/gallery/crush/crush-dj-booth-3.jpg", alt: "Live set at Crush" },
-  { src: "/images/gallery/crush/crush-dj-booth-4.jpg", alt: "Behind the decks at Crush" },
-  { src: "/images/gallery/crush/applebum-mic.jpg", alt: "Mister Bounce at Applebum" },
-  // Live events
-  { src: "/images/gallery/IMG-20260108-WA0014.jpg", alt: "Mister Bounce live" },
-  { src: "/images/gallery/IMG-20260108-WA0015.jpg", alt: "Mister Bounce performing" },
-  { src: "/images/gallery/IMG-20260108-WA0016.jpg", alt: "Mister Bounce on stage" },
-  { src: "/images/gallery/IMG-20260108-WA0017.jpg", alt: "Mister Bounce DJ set" },
-  { src: "/images/gallery/IMG-20260108-WA0018.jpg", alt: "Mister Bounce event" },
-  // More studio
-  { src: "/images/gallery/promo/studio-3.jpg", alt: "Mister Bounce studio" },
-  { src: "/images/gallery/promo/studio-5.jpg", alt: "Mister Bounce portrait shot" },
-  { src: "/images/gallery/promo/studio-7.jpg", alt: "Mister Bounce profile" },
-  { src: "/images/gallery/promo/portrait-2.jpg", alt: "Mister Bounce close-up" },
-  { src: "/images/gallery/promo/portrait-4.jpg", alt: "Mister Bounce press shot" },
-];
+const galleryImages = galleryData.images;
 
 export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
