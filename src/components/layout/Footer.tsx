@@ -99,6 +99,12 @@ export default function Footer() {
             >
               Terms
             </Link>
+            <Link
+              href="/login"
+              className="text-sm text-text-muted hover:text-text-heading transition-colors"
+            >
+              Admin Login
+            </Link>
           </div>
         </div>
       </div>
