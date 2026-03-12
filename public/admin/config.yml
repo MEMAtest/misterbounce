@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: events
+    label: Events
+    files:
+      - name: events_list
+        label: Upcoming Events
+        file: src/data/events.json
+        fields:
+          - name: events
+            label: Events
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string, hint: "Unique number e.g. 1, 2, 3" }
+              - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+              - { name: venue, label: Venue, widget: string, hint: "e.g. Crush @ XOYO" }
+              - { name: city, label: City, widget: string, default: London }
+              - { name: country, label: Country, widget: string, default: UK }
+              - name: status
+                label: Status
+                widget: select
+                options:
+                  - { label: "Tickets Available", value: tickets }
+                  - { label: "Sold Out", value: sold_out }
+                  - { label: "Announced", value: announced }
+                  - { label: "Free Entry", value: free }
+                  - { label: "Guestlist Only", value: guestlist }
+              - { name: ticketUrl, label: Ticket URL, widget: string, required: false, hint: "Link to buy tickets (optional)" }

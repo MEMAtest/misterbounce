@@ -68,6 +68,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", function(user) {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", function() {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <ServiceWorkerRegistration />
         <SoundEffects />
