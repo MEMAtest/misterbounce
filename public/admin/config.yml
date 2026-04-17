@@ -16,22 +16,24 @@ collections:
           - name: events
             label: Events
             widget: list
+            summary: "{{venue}} — {{date}}"
             fields:
-              - { name: id, label: ID, widget: string, hint: "Unique number e.g. 1, 2, 3" }
-              - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
-              - { name: venue, label: Venue, widget: string, hint: "e.g. Crush @ XOYO" }
+              - { name: id, label: ID, widget: uuid, hint: "Auto-generated" }
+              - { name: date, label: Event Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, hint: "Must be a future date to show on site" }
+              - { name: venue, label: Venue / Event Name, widget: string, hint: "e.g. Crush @ XOYO, Soulphonics @ Brixton Storeys" }
               - { name: city, label: City, widget: string, default: London }
               - { name: country, label: Country, widget: string, default: UK }
               - name: status
                 label: Status
                 widget: select
+                default: tickets
                 options:
                   - { label: "Tickets Available", value: tickets }
                   - { label: "Sold Out", value: sold_out }
                   - { label: "Announced", value: announced }
                   - { label: "Free Entry", value: free }
                   - { label: "Guestlist Only", value: guestlist }
-              - { name: ticketUrl, label: Ticket URL, widget: string, required: false, hint: "Link to buy tickets (optional)" }
+              - { name: ticketUrl, label: Ticket URL, widget: string, required: false, hint: "Link to buy tickets (leave blank if none)" }
 
   - name: about
     label: Bio & About
