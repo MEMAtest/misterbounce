@@ -89,22 +89,6 @@ export default function Music() {
           </div>
         )}
 
-        {/* Audio Tracks */}
-        {localTracks.length > 0 && (
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-text-heading mb-4 text-center">Preview Tracks</h3>
-            <div className="grid gap-4">
-              {localTracks.map((track) => (
-                <div key={track.id} className="bg-white rounded-2xl p-5 shadow-md border border-border/50 hover:shadow-lg transition-shadow">
-                  <p className="text-base font-bold text-text-heading mb-3">{track.title}</p>
-                  <audio controls className="w-full h-12" preload="none">
-                    <source src={track.src} type="audio/mpeg" />
-                  </audio>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Platform Links */}
         {platformLinks.length > 0 && (

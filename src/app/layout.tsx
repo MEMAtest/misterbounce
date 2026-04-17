@@ -4,7 +4,6 @@ import "./globals.css";
 import { Header, Footer } from "@/components/layout";
 
 import ServiceWorkerRegistration from "@/components/ui/ServiceWorkerRegistration";
-import SoundEffects from "@/components/ui/SoundEffects";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const inter = Inter({
@@ -88,7 +87,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <ServiceWorkerRegistration />
-        <SoundEffects />
 
         <Header />
         <main className="flex-1">{children}</main>

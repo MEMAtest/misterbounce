@@ -167,16 +167,6 @@ export default function Hero() {
           <span className="block">BOUNCE</span>
         </h1>
 
-        <p
-          className="mt-6 md:mt-8 text-lg md:text-xl max-w-xl font-bold tracking-widest"
-          style={{
-            color: "#ffffff",
-            textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)",
-          }}
-        >
-          HOUSE • SOUL • GROOVE
-        </p>
-
         <div className="mt-8 md:mt-12 flex flex-wrap gap-4">
           <a
             href="#events"

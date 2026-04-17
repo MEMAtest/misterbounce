@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -7,6 +9,19 @@ export default function Footer() {
   return (
     <footer className="bg-muted border-t border-border">
       <div className="container py-12">
+        {/* Back to Top */}
+        <div className="flex justify-center mb-8">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-heading transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+            Back to top
+          </a>
+        </div>
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
