@@ -18,7 +18,7 @@ collections:
             widget: list
             summary: "{{venue}} — {{date}}"
             fields:
-              - { name: id, label: ID, widget: uuid, hint: "Auto-generated" }
+              - { name: id, label: Event Name, widget: string, hint: "Short name e.g. Soulphonics, Crush, Applebum" }
               - { name: date, label: Event Date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, hint: "Must be a future date to show on site" }
               - { name: venue, label: Venue / Event Name, widget: string, hint: "e.g. Crush @ XOYO, Soulphonics @ Brixton Storeys" }
               - { name: city, label: City, widget: string, default: London }

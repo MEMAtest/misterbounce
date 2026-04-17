@@ -10,10 +10,13 @@ const INITIAL_SHOW = 3;
 export default function Events() {
   const [showAll, setShowAll] = useState(false);
 
-  // Get upcoming events sorted by date
+  // Split into upcoming and past events
   const upcomingEvents = sortEventsByDate(
     events.filter((event) => isFutureDate(event.date))
   );
+  const pastEvents = sortEventsByDate(
+    events.filter((event) => !isFutureDate(event.date))
+  ).reverse();
 
   // Show 3 initially, or all if expanded
   const displayEvents = showAll
@@ -143,6 +146,29 @@ export default function Events() {
             <p className="text-text-muted">
               Follow on social media for announcements
             </p>
+          </div>
+        )}
+
+        {/* Past Events */}
+        {pastEvents.length > 0 && (
+          <div className="mt-16">
+            <h3 className="text-2xl md:text-3xl font-black text-text-heading mb-2 text-center">
+              Here&apos;s what you <span className="text-text-muted">missed</span>
+            </h3>
+            <p className="text-text-muted text-center mb-8">Previous shows</p>
+            <div className="grid gap-4 max-w-2xl mx-auto">
+              {pastEvents.slice(0, 6).map((event) => (
+                <div key={event.id} className="flex items-center justify-between p-4 bg-white/60 rounded-xl border border-border/30 opacity-75">
+                  <div>
+                    <p className="font-bold text-text-heading">{event.venue}</p>
+                    <p className="text-sm text-text-muted">{event.city}, {event.country}</p>
+                  </div>
+                  <p className="text-sm text-text-muted font-medium">
+                    {new Date(event.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
