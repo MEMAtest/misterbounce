@@ -1,5 +1,8 @@
 {
   "photo": "/images/gallery/promo/studio-1.jpg",
   "bio": "DJ, radio host, and voiceover artist — Mister Bounce brings the energy wherever he goes. A resident at Crush and regular at Applebum, he's built a reputation for sets that move the room from start to finish.\n\nSpecialising in Hip Hop, RnB, House & Soul, Mister Bounce blends classic tracks with fresh sounds to create a vibe that keeps people on the dancefloor.\n\nAvailable for club nights, private events, corporate functions, radio shows, and voiceover work.",
-  "credentials": ["Crush Resident", "Applebum", "Radio Host", "Voiceover"]
+  "credentials": [
+    "Radio Host",
+    "Voiceover"
+  ]
 }
