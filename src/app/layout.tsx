@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
-import CustomCursor from "@/components/ui/CustomCursor";
+
 import ServiceWorkerRegistration from "@/components/ui/ServiceWorkerRegistration";
 import SoundEffects from "@/components/ui/SoundEffects";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -89,7 +89,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <ServiceWorkerRegistration />
         <SoundEffects />
-        <CustomCursor />
+
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
