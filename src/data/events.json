@@ -4,9 +4,9 @@
       "city": "London",
       "country": "UK",
       "id": "Soulphonics",
-      "date": "2026-04-24",
+      "date": "2026-04-17",
       "venue": "Brixton Storeys",
-      "status": "tickets",
+      "status": "sold_out",
       "ticketUrl": ""
     }
   ]
